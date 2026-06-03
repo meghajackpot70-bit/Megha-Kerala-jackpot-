@@ -204,4 +204,80 @@ function renderLiveBoxText() {
     const lang = fullPageTranslations[currentLang] || fullPageTranslations.en;
     document.getElementById("live-from-text").innerText = lang.liveFrom;
     document.getElementById("live-user-tickets").innerText = lang.liveBookedText.replace("{num}", lastGeneratedTickets);
-    document.getElementById("live-user-paid").in
+    document.getElementById("live-user-paid").innerText = lang.livePaidText.replace("{amt}", lastGeneratedAmount);
+}
+
+document.getElementById("langSelect").addEventListener("change", function(){
+    currentLang = this.value;
+    const lang = fullPageTranslations[currentLang] || fullPageTranslations.en;
+
+    document.getElementById("b-gov").innerText = lang.bGov;
+    document.getElementById("b-type").innerText = lang.bType;
+    document.getElementById("b-lot").innerText = lang.bLot;
+    document.getElementById("b-p1").innerText = lang.bP1;
+    document.getElementById("b-p2").innerText = lang.bP2;
+    document.getElementById("b-cr").innerText = lang.bCr;
+    document.getElementById("b-piz2").innerHTML = lang.bPiz2;
+    document.getElementById("b-piz3").innerHTML = lang.bPiz3;
+    document.getElementById("b-piz4").innerHTML = lang.bPiz4;
+    document.getElementById("b-piz5").innerHTML = lang.bPiz5;
+    document.getElementById("b-live-text").innerText = lang.bCommon;
+
+    document.getElementById("language-label").innerText = lang.chooseLang;
+    document.getElementById("name-label").innerText = lang.enterName;
+    document.getElementById("custName").placeholder = lang.namePlaceholder;
+    document.getElementById("whatsapp-label").innerText = lang.enterWhatapp;
+    document.getElementById("custWhatsapp").placeholder = lang.whatsappPlaceholder;
+    document.getElementById("ticket-label").innerText = lang.chooseTicket;
+    document.getElementById("amount-text").innerText = lang.amountText;
+    document.getElementById("submit-btn").innerText = lang.submitBtn;
+
+    renderLiveBoxText();
+});
+
+// GENERATE TICKETS DYNAMICALLY
+const ticketsGrid = document.getElementById("tickets-grid");
+let selectedTickets = [];
+
+for(let i=1; i<=100; i++){
+    const randomDigits = Math.floor(100000 + Math.random()*900000);
+    const ticketID = `KL-${randomDigits}`;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "border border-slate-300 text-slate-700 font-bold p-2 rounded-xl text-xs flex items-center justify-center gap-1 bg-white hover:bg-emerald-50 transition cursor-pointer shadow-sm";
+    btn.innerHTML = `🎫 ${ticketID}`;
+    
+    btn.onclick = function() {
+        if(selectedTickets.includes(ticketID)) {
+            selectedTickets = selectedTickets.filter(t => t !== ticketID);
+            btn.classList.remove("bg-emerald-800", "text-amber-300", "border-emerald-800");
+            btn.classList.add("bg-white", "text-slate-700");
+        } else {
+            selectedTickets.push(ticketID);
+            btn.classList.remove("bg-white", "text-slate-700");
+            btn.classList.add("bg-emerald-800", "text-amber-300", "border-emerald-800");
+        }
+        // DYNAMIC COUNTER UPDATE FOR "BOOKED (...) TICKET"
+        document.getElementById("ticketCount").innerText = selectedTickets.length;
+        document.getElementById("totalAmount").innerText = `₹${selectedTickets.length * ticketPrice}`;
+    };
+    ticketsGrid.appendChild(btn);
+}
+
+function sendToWhatsApp() {
+    const name = document.getElementById("custName").value.trim();
+    const phone = document.getElementById("custWhatsapp").value.trim();
+    const lang = fullPageTranslations[currentLang] || fullPageTranslations.en;
+
+    if(!name) { alert(lang.alertName); return; }
+    if(!phone) { alert(lang.alertPhone); return; }
+    if(selectedTickets.length === 0) { alert(lang.alertTicket); return; }
+
+    const totalAmt = selectedTickets.length * ticketPrice;
+    const message = `Hello, I want to book tickets:\n\nName: ${name}\nPhone: ${phone}\nTickets: ${selectedTickets.join(", ")}\nTotal Amount: ₹${totalAmt}`;
+    
+    window.open(`https://api.whatsapp.com/send?phone=${MY_WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`, '_blank');
+}
+</script>
+</body>
+</html>
