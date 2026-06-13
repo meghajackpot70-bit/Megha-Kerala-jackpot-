@@ -3,411 +3,450 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kerala State Lottery - Multi-Language Booking</title>
+<title>Kerala State Lottery - Live 500 Booking</title>
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-    body { font-family: 'Poppins', sans-serif; background-color: #05140b; }
-    @keyframes tiktik { 0%, 100% { opacity:1; transform:scale(1); } 50% { opacity:.2; transform:scale(.92); } }
+    body { font-family: 'Poppins', sans-serif; background-color: #040f08; }
+    @keyframes tiktik { 0%, 100% { opacity:1; transform:scale(1); } 50% { opacity:.3; transform:scale(.97); } }
     .live-blink { animation: tiktik .8s infinite ease-in-out; }
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-thumb { background: #154522; border-radius: 10px; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 10px; }
+    
+    .ticket-selected { 
+        border-color: #047857 !important; 
+        background: linear-gradient(135deg, #059669, #10b981) !important; 
+        color: #ffffff !important;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+    }
+    .ticket-selected span {
+        color: #ffffff !important;
+    }
+    
+    .banner-size-fixed {
+        width: 100% !important;
+        max-width: 510px !important;
+        height: 66px !important;
+    }
 </style>
 </head>
 <body class="min-h-screen flex justify-center items-center p-2 md:p-4">
 
-<div class="w-full max-w-md bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-800/20">
+<div class="w-full max-w-md bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-950/10">
 
-    <div class="p-4 bg-[#05140b] relative text-center">
-        <div class="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 rounded-2xl p-3 grid grid-cols-12 gap-1 items-center text-slate-950 shadow-lg border border-amber-300 relative overflow-hidden">
+    <div class="p-3 bg-[#05140b] relative text-center">
+        <div class="w-full bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 rounded-xl px-3 py-1 grid grid-cols-12 gap-1 items-center text-slate-950 shadow-lg border border-amber-300 overflow-hidden">
             
             <div class="col-span-4 text-left border-r border-slate-950/15 pr-1">
-                <p id="b-gov" class="text-[9px] font-black text-emerald-900 leading-none">കേരള സർക്കാർ</p>
-                <p id="b-type" class="text-2xl font-black text-slate-950 tracking-tighter leading-none my-1 drop-shadow-sm">ബമ്പർ</p>
-                <p id="b-lot" class="text-[9px] font-black text-emerald-950 leading-none">ലോട്ടറി</p>
-                <p id="b-gov-sub" class="text-[9px] font-black text-red-700 leading-none mt-1 tracking-tighter uppercase">Government of Kerala</p>
+                <p id="b-gov" class="text-[8px] font-black text-emerald-900 leading-none">Govt of Kerala</p>
+                <p id="b-type" class="text-base font-black text-slate-950 tracking-tighter leading-none my-0.5">BUMPER</p>
+                <p id="b-lot" class="text-[8px] font-black text-emerald-950 leading-none">LOTTERY</p>
+                <p id="b-gov-sub" class="text-[6px] font-black text-red-700 leading-none tracking-tighter uppercase">Govt of Kerala</p>
             </div>
             
-            <div class="col-span-4 flex flex-col items-center justify-center px-0.5">
-                <div class="bg-gradient-to-b from-red-600 to-red-700 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center border-2 border-white shadow-md transform scale-110">
-                    <span id="b-p1" class="text-[6px] font-black uppercase tracking-tighter leading-none">1st PRIZE</span>
-                    <span id="b-p2" class="text-[6px] font-black uppercase tracking-tighter leading-none mb-0.5">BUMPER</span>
-                    <span id="b-prize-amount" class="text-xl font-black leading-none drop-shadow-md tracking-tighter">25</span>
-                    <span id="b-cr" class="text-[7px] font-bold leading-none">കോടി</span>
+            <div class="col-span-4 flex flex-col items-center justify-center mx-auto">
+                <div class="bg-gradient-to-b from-red-600 to-red-700 text-white rounded-full h-11 w-11 flex flex-col items-center justify-center border border-white shadow">
+                    <span id="b-p1" class="text-[5px] font-black leading-none">1st PRIZE</span>
+                    <span id="b-prize-amount" class="text-xs font-black leading-none tracking-tighter">25 Cr</span>
                 </div>
-                <div id="b-tkt-price-lbl" class="mt-2.5 bg-slate-950 text-amber-400 rounded-md font-black text-[9px] px-2 py-0.5 tracking-tighter border border-slate-900 shadow-md whitespace-nowrap">
-                     TICKET PRICE: ₹49
+                <div id="b-tkt-price-lbl" class="mt-0.5 bg-slate-950 text-amber-400 rounded px-1 py-0.2 text-[8px] font-black whitespace-nowrap">
+                     PRICE: ₹49
                 </div>
             </div>
             
-            <div class="col-span-4 text-right pl-1 border-l border-slate-950/15 text-[8px] font-black space-y-0.5 text-slate-900">
-                <p id="b-piz2">2nd prize <span class="text-red-700 font-extrabold block text-[9px]">₹12 Crore</span></p>
-                <p id="b-piz3">3rd prize <span class="text-red-700 font-extrabold block text-[9px]">₹75 Lakh</span></p>
-                <p id="b-piz4">4th prize <span class="text-red-700 font-extrabold block text-[9px]">₹25 Lakh</span></p>
-                <p id="b-piz5">5th prize <span class="text-red-700 font-extrabold block text-[9px]">₹12 Lakh</span></p>
+            <div class="col-span-4 text-right pl-1 border-l border-slate-950/15 text-[7px] font-black space-y-0.5 text-slate-900 whitespace-nowrap">
+                <p id="b-piz2">2nd <span id="val-p2" class="text-red-700 font-extrabold text-[8px]">₹12 Crore</span></p>
+                <p id="b-piz3">3rd <span id="val-p3" class="text-red-700 font-extrabold text-[8px]">₹75 Lakh</span></p>
+                <p id="b-piz4">4th <span id="val-p4" class="text-red-700 font-extrabold text-[8px]">₹25 Lakh</span></p>
+                <p id="b-piz5">5th <span id="val-p5" class="text-red-700 font-extrabold text-[8px]">₹12 Lakh</span></p>
             </div>
         </div>
         
-        <div id="b-common" class="mt-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-black rounded-xl text-[10px] py-2 px-4 uppercase tracking-widest border border-red-700 shadow-md flex items-center justify-center gap-2">
-            <span class="h-2 w-2 bg-white rounded-full live-blink shadow"></span>
+        <div id="b-common" class="mt-2 bg-gradient-to-r from-red-600 to-red-700 text-white font-black rounded-lg text-[9px] py-1 px-3 uppercase border border-red-700 shadow flex items-center justify-center gap-2">
+            <span class="h-1.5 w-1.5 bg-white rounded-full live-blink shadow"></span>
             <span id="b-live-text">Kerala Government Live Result Today</span>
         </div>
     </div>
 
-    <div class="m-3 bg-emerald-50 border border-emerald-100 rounded-2xl p-3 flex justify-between items-center shadow-sm">
+    <div class="mx-3 my-2 bg-emerald-50 border border-emerald-100 rounded-xl p-2 flex justify-between items-center shadow-sm">
         <div>
-            <p class="text-xs font-bold text-slate-800">
-                <span id="live-user-name" class="text-emerald-700 font-extrabold uppercase tracking-wide">Rahul Sharma</span> 
-                <span id="live-from-text" class="text-slate-500 font-normal text-xs ml-0.5">from</span> 
-                <span id="live-user-state" class="text-slate-700 font-bold capitalize ml-0.5">Tamil Nadu</span>
+            <p class="text-[11px] font-bold text-slate-800">
+                <span id="live-user-name" class="text-emerald-700 font-extrabold uppercase">Anand Krishnan</span> 
+                <span id="live-from-text" class="text-slate-500 font-normal ml-0.5">from</span> 
+                <span id="live-user-state" class="text-slate-700 font-bold capitalize ml-0.5">Kerala</span>
             </p>
-            <p id="live-user-tickets" class="text-[11px] text-slate-500 font-medium mt-0.5">booked 🎟️ (4) tickets</p>
+            <p id="live-user-tickets" class="text-[10px] text-slate-500 font-medium mt-0.5">booked (5) tickets online</p>
         </div>
-        <div id="live-user-paid" class="bg-emerald-700 text-white border border-emerald-800 text-xs font-black px-3 py-1.5 rounded-xl text-center shadow-sm whitespace-nowrap">
-            ₹196 paid
+        <div id="live-user-paid" class="bg-emerald-700 text-white border border-emerald-800 text-[10px] font-black px-2.5 py-1 rounded-lg text-center whitespace-nowrap">
+            ₹245 paid
         </div>
     </div>
 
-    <div class="px-4 pb-4 space-y-3.5 mt-2">
+    <div class="px-4 pb-4 space-y-3">
+        
         <div>
-            <label id="language-label" class="block text-xs font-bold text-slate-600 mb-1">👉 Choose Your Language / भाषा चुनें 👈</label>
-            <select id="langSelect" class="w-full bg-slate-50 border border-slate-300 rounded-xl py-2.5 px-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-700 cursor-pointer">
-                <option value="en" data-name="English">English</option>
-                <option value="hi" data-name="Hindi (हिंदी)">Hindi (हिंदी)</option>
-                <option value="ml" data-name="Malayalam (മലയാളം)">Malayalam (മലയാളം)</option>
-                <option value="ta" data-name="Tamil (தமிழ்)">Tamil (தமிழ்)</option>
-                <option value="te" data-name="Telugu (తెలుగు)">Telugu (తెలుగు)</option>
-                <option value="kn" data-name="Kannada (ಕನ್ನಡ)">Kannada (ಕನ್ನಡ)</option>
-                <option value="mr" data-name="Marathi (मराठी)">Marathi (मराठी)</option>
-                <option value="gu" data-name="Gujarati (ગુજરાતી)">Gujarati (ગુજરાતી)</option>
-                <option value="bn" data-name="Bengali (বাংলা)">Bengali (বাংলা)</option>
+            <label id="language-label" class="block text-[10px] font-bold text-slate-600 mb-1">👉 Choose Your Language / अपनी भाषा चुनें</label>
+            <select id="langSelect" onchange="changeLanguage(this.value)" class="w-full bg-slate-50 border border-slate-300 rounded-xl py-1.5 px-2.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-700 cursor-pointer">
+                <option value="en">English</option>
+                <option value="hi">Hindi (हिंदी)</option>
+                <option value="ml">Malayalam (മലയാളം)</option>
+                <option value="ta">Tamil (தமிழ்)</option>
+                <option value="te">Telugu (తెలుగు)</option>
+                <option value="kn">Kannada (ಕನ್ನಡ)</option>
+                <option value="mr">Marathi (मराठी)</option>
+                <option value="bn">Bengali (বাংলা)</option>
+                <option value="or">Odia (ଓଡ଼ିଆ)</option>
+                <option value="gu">Gujarati (ગુજરાતી)</option>
+                <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
+                <option value="as">Assamese (অসমীয়া)</option>
             </select>
         </div>
 
-        <div>
-            <label id="name-label" class="block text-xs font-bold text-slate-600 mb-1">👉 ENTER YOUR NAME 👈</label>
-            <div class="relative">
-                <span class="absolute left-3 top-2.5 text-slate-400">👤</span>
-                <input type="text" id="custName" placeholder="enter your name" class="w-full bg-slate-50 border border-slate-300 rounded-xl py-2.5 pl-9 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-700">
+        <div class="grid grid-cols-2 gap-2">
+            <div>
+                <label id="name-label" class="block text-[10px] font-bold text-slate-600 mb-1">👤 YOUR NAME</label>
+                <input type="text" id="custName" placeholder="Enter name" class="w-full bg-slate-50 border border-slate-300 rounded-xl py-1.5 px-3 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-700 font-medium">
+            </div>
+            <div>
+                <label id="whatsapp-label" class="block text-[10px] font-bold text-slate-600 mb-1">📲 PHONE NUMBER</label>
+                <input type="tel" id="custWhatsapp" placeholder="Mobile number" class="w-full bg-slate-50 border border-slate-300 rounded-xl py-1.5 px-3 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-700 font-semibold">
             </div>
         </div>
 
-        <div>
-            <label id="whatsapp-label" class="block text-xs font-bold text-slate-600 mb-1">📲 PHONE NUMBER 📱</label>
-            <div class="relative">
-                <span class="absolute left-3 top-2.5 text-slate-400">📞</span>
-                <input type="tel" id="custWhatsapp" placeholder="enter mobile number" class="w-full bg-slate-50 border border-slate-300 rounded-xl py-2.5 pl-9 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-700 font-semibold">
+        <div class="flex justify-between items-center mt-1">
+            <div class="flex items-center gap-1.5">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+                </span>
+                <label id="ticket-label" class="text-[10px] font-black text-red-700 uppercase tracking-wide">LIVE TICKETS</label>
             </div>
+            <span id="tkt-badge" class="bg-red-100 text-red-700 border border-red-200 text-[9px] font-black px-1.5 py-0.5 rounded">₹49/Tkt</span>
         </div>
 
-        <div>
-            <div class="flex justify-between items-center mb-1.5">
-                <div class="flex items-center gap-1.5">
-                    <label id="ticket-label" class="text-xs font-bold text-slate-600">👉 CHOOSE YOUR LIVE TICKETS NUMBER 👈</label>
-                    <span class="h-2 w-2 bg-red-600 rounded-full live-blink inline-block shadow shadow-red-500"></span>
-                </div>
-                <span id="ticket-price-badge" class="bg-red-100 text-red-700 border border-red-200 text-[10px] font-black px-2 py-0.5 rounded-md shadow-sm">PRICE: ₹49</span>
-            </div>
-            <div id="tickets-grid" class="grid grid-cols-2 gap-2 max-h-56 overflow-y-auto p-1.5 border border-slate-200 rounded-xl bg-slate-50"></div>
+        <div id="tickets-grid" class="grid grid-cols-2 gap-2 max-h-44 overflow-y-auto p-2 border border-amber-200/60 rounded-xl bg-gradient-to-b from-amber-50/40 to-emerald-50/20 shadow-inner">
         </div>
 
-        <div class="bg-slate-950 text-white rounded-2xl p-4 flex justify-between items-center font-bold text-xs uppercase tracking-wider border border-emerald-900/30 shadow-inner">
-            <div class="text-amber-400 font-extrabold text-xs md:text-sm flex flex-col gap-0.5">
+        <div id="status-box" class="banner-size-fixed bg-slate-950 text-white rounded-xl p-3 flex justify-between items-center font-bold text-[10px] uppercase border border-emerald-900/30 shadow-inner mx-auto">
+            <div class="text-amber-400 font-extrabold flex flex-col justify-center">
                 <div>
                     <span id="booked-lbl">BOOKED</span> 
-                    (<span id="ticketCount" class="text-white font-black text-sm">0</span>) 
-                    <span id="tkt-lbl">TICKET</span>
+                    (<span id="ticketCount" class="text-white font-black text-xs">0</span>) 
+                    <span id="tkt-lbl">TICKETS</span>
                 </div>
-                <span class="text-[9px] text-slate-400 lowercase tracking-normal font-medium" id="single-tkt-cost">1 ticket = ₹49</span>
+                <span class="text-[8px] text-slate-400 lowercase font-medium tracking-normal leading-none mt-0.5" id="lbl-unit-cost">1 ticket = ₹49</span>
             </div>
-            <div class="text-right">
-                <span id="amount-text" class="text-slate-400 font-medium text-[10px] block tracking-normal">AMOUNT:</span> 
-                <span id="totalAmount" class="text-amber-400 font-black text-base md:text-lg">₹0</span>
+            <div class="text-right flex flex-col justify-center">
+                <span id="amount-text" class="text-slate-400 font-medium text-[8px] block tracking-normal leading-none">TOTAL AMOUNT:</span> 
+                <span id="totalAmount" class="text-amber-400 font-black text-sm mt-0.5">₹0</span>
             </div>
         </div>
 
-        <button onclick="copyDetailsToClipboard()" id="submit-btn" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-[0.98] transition-all text-white py-4 rounded-2xl font-black shadow-lg shadow-emerald-900/20 flex flex-col justify-center items-center gap-0.5 cursor-pointer uppercase text-xs tracking-wider border-b-4 border-emerald-800">
-            <span class="flex items-center gap-2 text-sm">📋 Copy Booking Details & Submit</span>
-            <span id="submit-subtext" class="text-[9px] lowercase opacity-80 tracking-normal font-normal">paste this on Instagram DM to instantly complete your booking!</span>
+        <button onclick="sendBookingToWhatsApp()" id="submit-btn" class="banner-size-fixed bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-[0.99] transition-all text-white rounded-xl font-black shadow-lg flex flex-col justify-center items-center gap-0.5 cursor-pointer uppercase text-[10px] tracking-wider border-b-4 border-emerald-800 mx-auto">
+            <span id="lbl-btn-main" class="flex items-center gap-1.5 text-xs">💬 Book via WhatsApp Now</span>
+            <span id="submit-subtext" class="text-[7.5px] lowercase opacity-80 tracking-normal font-normal">Click to send selected ticket list instantly to our WhatsApp!</span>
         </button>
     </div>
 </div>
 
 <script>
-const ticketPrice = 49; 
+const ticketPrice = 49;
 const selectedTickets = new Set();
-let currentLang = 'en';
+const myWhatsAppNumber = "7320839652";
 
-const fullPageTranslations = {
+const ticketNumbers = [];
+function generate500Tickets() {
+    for(let i = 1; i <= 500; i++) {
+        let randNum = Math.floor(100000 + Math.random() * 900000);
+        ticketNumbers.push(`KL-${randNum}`);
+    }
+}
+generate500Tickets();
+
+// FULL DATABASE TRANSLATION FOR ALL 12 LANGUAGES IN SCREENSHOT
+const dictionary = {
     en: {
-        bGov: "Kerala Govt", bType: "Bumper", bLot: "Lottery", bGovSub: "Government of Kerala",
-        bP1: "1st PRIZE", bP2: "BUMPER", bCr: "Crore", bTktPrice: "TICKET PRICE: ₹49",
-        bPiz2: '2nd prize <span class="text-red-700 font-extrabold block text-[9px]">₹12 Crore</span>',
-        bPiz3: '3rd prize <span class="text-red-700 font-extrabold block text-[9px]">₹75 Lakh</span>',
-        bPiz4: '4th prize <span class="text-red-700 font-extrabold block text-[9px]">₹25 Lakh</span>',
-        bPiz5: '5th prize <span class="text-red-700 font-extrabold block text-[9px]">₹12 Lakh</span>',
-        bCommon: "Kerala Government Live Result Today", chooseLang: "👉 Choose Your Language 👈",
-        enterName: "👉 ENTER YOUR NAME 👈", namePlaceholder: "enter your name", enterWhatapp: "📲 PHONE NUMBER 📱",
-        whatsappPlaceholder: "enter mobile number", chooseTicket: "👉 CHOOSE YOUR LIVE TICKETS NUMBER 👈",
-        bookedLbl: "BOOKED", tktLbl: "TICKET", amountText: "AMOUNT:", submitBtn: "📋 Copy Booking Details & Submit",
-        liveFrom: "from", liveBookedText: "booked 🎟️ ({num}) tickets", livePaidText: "₹{amt} paid",
-        alertName: "Please enter your Name", alertPhone: "Please enter your Mobile Number", alertTicket: "Please choose at least one ticket number!",
-        successCopy: "✅ Details Copied Successfully! Now open Instagram and paste it in chat to secure your booking.",
-        tktBadge: "PRICE: ₹49", subtextBtn: "paste this on Instagram DM to instantly complete your booking!", singleCost: "1 ticket = ₹49"
+        bGov: "Govt of Kerala", bType: "BUMPER", bLot: "LOTTERY", bLive: "Kerala Government Live Result Today",
+        p2: "2nd ₹12 Crore", p3: "3rd ₹75 Lakh", p4: "4th ₹25 Lakh", p5: "5th ₹12 Lakh",
+        from: "from", bookedOnline: "booked ({count}) tickets online", paid: "₹{amt} paid",
+        chooseLang: "👉 Choose Your Language / अपनी भाषा चुनें", nameLbl: "👤 YOUR NAME", phoneLbl: "📲 PHONE NUMBER",
+        namePlace: "Enter name", phonePlace: "Mobile number", liveTkts: "LIVE TICKETS", tktRate: "₹49/Tkt",
+        booked: "BOOKED", tkts: "TICKETS", unitCost: "1 ticket = ₹49", totalAmt: "TOTAL AMOUNT:",
+        btnMain: "Book via WhatsApp Now", btnSub: "Click to send selected ticket list instantly to our WhatsApp!",
+        errName: "Please enter your Name", errPhone: "Please enter your Mobile Number", errTkt: "Please select at least one ticket to book!",
+        langName: "English"
     },
     hi: {
-        bGov: "केरल सरकार", bType: "बम्पर", bLot: "लॉटरी", bGovSub: "केरल सरकार प्राधिकरण",
-        bP1: "प्रथम पुरस्कार", bP2: "बम्पर", bCr: "करोड़", bTktPrice: "टिकट मूल्य: ₹49",
-        bPiz2: 'द्वितीय पुरस्कार <span class="text-red-700 font-extrabold block text-[9px]">₹12 करोड़</span>',
-        bPiz3: 'तृतीय पुरस्कार <span class="text-red-700 font-extrabold block text-[9px]">₹75 लाख</span>',
-        bPiz4: 'चतुर्थ पुरस्कार <span class="text-red-700 font-extrabold block text-[9px]">₹25 लाख</span>',
-        bPiz5: 'पंचम पुरस्कार <span class="text-red-700 font-extrabold block text-[9px]">₹12 लाख</span>',
-        bCommon: "केरल सरकार लाइव रिजल्ट आज", chooseLang: "👉 अपनी भाषा चुनें 👈",
-        enterName: "👉 अपना नाम दर्ज करें 👈", namePlaceholder: "अपना नाम यहाँ लिखें", enterWhatapp: "📲 फ़ोन नंबर 📱",
-        whatsappPlaceholder: "मोबाइल नंबर दर्ज करें", chooseTicket: "👉 लाइव टिकट नंबर चुनें 👈",
-        bookedLbl: "बुक किया गया", tktLbl: "टिकट", amountText: "कुल राशि:", submitBtn: "📋 विवरण कॉपी करें और सबमिट करें",
-        liveFrom: "निवासी", liveBookedText: "🎟️ ({num}) टिकट बुक किया", livePaidText: "₹{amt} भुगतान किया",
-        alertName: "कृपया अपना नाम दर्ज करें", alertPhone: "कृपया अपना मोबाइल नंबर दर्ज करें", alertTicket: "कृपया कम से कम एक टिकट नंबर चुनें!",
-        successCopy: "✅ विवरण सफलतापूर्वक कॉपी हो गया! अब इंस्टाग्राम खोलें और चैट में पेस्ट करें।",
-        tktBadge: "मूल्य: ₹49", subtextBtn: "इसे इंस्टाग्राम पर पेस्ट करें और बुकिंग तुरंत पूरी करें!", singleCost: "1 टिकट = ₹49"
+        bGov: "केरल सरकार", bType: "बम्पर", bLot: "लॉटरी", bLive: "केरल सरकार लाइव रिजल्ट आज",
+        p2: "2nd ₹12 करोड़", p3: "3rd ₹75 लाख", p4: "4th ₹25 लाख", p5: "5th ₹12 लाख",
+        from: "से", bookedOnline: "ऑनलाइन ({count}) टिकट बुक किए", paid: "₹{amt} भुगतान किया",
+        chooseLang: "👉 भाषा चुनें / Choose Language", nameLbl: "👤 आपका नाम", phoneLbl: "📲 फ़ोन नंबर",
+        namePlace: "अपना नाम दर्ज करें", phonePlace: "मोबाइल नंबर", liveTkts: "लाइव टिकट्स", tktRate: "₹49/टिकट",
+        booked: "बुक किया", tkts: "टिकट", unitCost: "1 टिकट = ₹49", totalAmt: "कुल राशि:",
+        btnMain: "व्हाट्सएप के जरिए तुरंत बुक करें", btnSub: "चुने हुए टिकटों की सूची सीधे व्हाट्सएप पर भेजने के लिए क्लिक करें!",
+        errName: "कृपया अपना नाम दर्ज करें", errPhone: "कृपया अपना मोबाइल नंबर दर्ज करें", errTkt: "कृपया बुक करने के लिए कम से कम एक टिकट चुनें!",
+        langName: "Hindi"
     },
     ml: {
-        bGov: "കേരള സർക്കാർ", bType: "ബമ്പർ", bLot: "ലോട്ടറി", bGovSub: "കേരള ഗവൺമെന്റ്",
-        bP1: "ഒന്നാം സമ്മാനം", bP2: "BUMPER", bCr: "കോടി", bTktPrice: "ടിക്കറ്റ് വില: ₹49",
-        bPiz2: 'രண்டാം സമ്മാനം <span class="text-red-700 font-extrabold block text-[9px]">₹12 കോടി</span>',
-        bPiz3: 'മൂന്നാം സമ്മാനം <span class="text-red-700 font-extrabold block text-[9px]">₹75 ലക്ഷം</span>',
-        bPiz4: 'നാലാം സമ്മാനം <span class="text-red-700 font-extrabold block text-[9px]">₹25 ലക്ഷം</span>',
-        bPiz5: 'അഞ്ചാം സമ്മാനം <span class="text-red-700 font-extrabold block text-[9px]">₹12 ലക്ഷം</span>',
-        bCommon: "കേരള സർക്കാർ തത്സമയ ഫലം ഇന്ന്", chooseLang: "👉 നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക 👈",
-        enterName: "👉 നിങ്ങളുടെ പേര് രേഖപ്പെടുത്തുക 👈", namePlaceholder: "പേര് ടൈപ്പ് ചെയ്യുക", enterWhatapp: "📲 ഫോൺ നമ്പർ 📱",
-        whatsappPlaceholder: "മൊബൈൽ നമ്പർ നൽകുക", chooseTicket: "👉 തത്സമય ടിക്കറ്റ് നമ്പർ തിരഞ്ഞെടുക്കുക 👈",
-        bookedLbl: "ബുക് ചെയ്തു", tktLbl: "ടിക്കറ്റ്", amountText: "ആകെ തുക:", submitBtn: "📋 വിവരങ്ങൾ കോപ്പി ചെയ്തു സബ്മിറ്റ് ചെയ്യുക",
-        liveFrom: "നിന്നും", liveBookedText: "🎟️ ({num}) ടിക്കറ്റുകൾ ബുക്ക് ചെയ്തു", livePaidText: "₹{amt} അടച്ചു",
-        alertName: "ദയവായി നിങ്ങളുടെ പേര് നൽകുക", alertPhone: "ദയവായി നിങ്ങളുടെ മൊബൈൽ നമ്പർ നൽകുക", alertTicket: "ദയവായി ഒരു ടിക്കറ്റ് നമ്പറെങ്കിലും തിരഞ്ഞെടുക്കുക!",
-        successCopy: "✅ വിവരങ്ങൾ വിജയകരമായി കോപ്പി ചെയ്തു! ഇനി ഇൻസ്റ്റാഗ്രാം തുറന്ന് ചാറ്റിൽ പേস্ট ചെയ്യുക.",
-        tktBadge: "വില: ₹49", subtextBtn: "ഇത് നിങ്ങളുടെ ഇൻസ്റ്റാഗ്രാം ചാറ്റിൽ പേസ്റ്റ് ചെയ്ത് ബുക്കിംഗ് പൂർത്തിയാക്കുക!", singleCost: "1 ടിക്കറ്റ് = ₹49"
+        bGov: "കേരള സർക്കാർ", bType: "ബമ്പർ", bLot: "ലോട്ടറി", bLive: "കേരള സർക്കാർ തത്സമയ ഫലം இன்று",
+        p2: "2nd ₹12 കോടി", p3: "3rd ₹75 ലക്ഷം", p4: "4th ₹25 ലക്ഷം", p5: "5th ₹12 ലക്ഷം",
+        from: "-ൽ നിന്ന്", bookedOnline: "ഓൺ‌ലൈനിൽ ({count}) ടിക്കറ്റുകൾ ബുക്ക് ചെയ്തു", paid: "₹{amt} അടച്ചു",
+        chooseLang: "👉 നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക", nameLbl: "👤 നിങ്ങളുടെ പേര്", phoneLbl: "📲 ഫോൺ നമ്പർ",
+        namePlace: "പേര് നൽകുക", phonePlace: "മൊബൈൽ നമ്പർ", liveTkts: "ലൈവ് ടിക്കറ്റുകൾ", tktRate: "₹49/ടിക്കറ്റ്",
+        booked: "ബുക് ചെയ്തു", tkts: "ടിക്കറ്റുകൾ", unitCost: "1 ടിക്കറ്റ് = ₹49", totalAmt: "ആകെ തുക:",
+        btnMain: "വാട്സ്ആപ്പ് വഴി ബുക്ക് ചെയ്യുക", btnSub: "തിരഞ്ഞെടുത്ത ടിക്കറ്റുകൾ വാട്സ്ആപ്പിലേക്ക് അയക്കാൻ ക്ലിക്ക് ചെയ്യുക!",
+        errName: "ദയവായി നിങ്ങളുടെ പേര് നൽകുക", errPhone: "ദയവായി നിങ്ങളുടെ മൊബൈൽ നമ്പർ നൽകുക", errTkt: "ദയവായി ഒരു ടിക്കറ്റെങ്കിലും തിരഞ്ഞെടുക്കുക!",
+        langName: "Malayalam"
     },
     ta: {
-        bGov: "கேരള அரசு", bType: "பம்பர்", bLot: "லாட்டரி", bGovSub: "கேരള அரசு",
-        bP1: "முதல் பரிசு", bP2: "BUMPER", bCr: "கோடி", bTktPrice: "சீட்டு விலை: ₹49",
-        bPiz2: '2ஆம் பரிசு <span class="text-red-700 font-extrabold block text-[9px]">₹12 கோடி</span>',
-        bPiz3: '3ஆம் பரிசு <span class="text-red-700 font-extrabold block text-[9px]">₹75 லட்சம்</span>',
-        bPiz4: '4ஆம் பரிசு <span class="text-red-700 font-extrabold block text-[9px]">₹25 லட்சம்</span>',
-        bPiz5: '5ஆம் பரிசு <span class="text-red-700 font-extrabold block text-[9px]">₹12 லட்சம்</span>',
-        bCommon: "கேരള அரசு நேரடி முடிவு இன்று", chooseLang: "👉 உங்கள் மொழியைத் தேர்ந்தெடுக்கவும் 👈",
-        enterName: "👉 உங்கள் பெயரை உள்ளிடவும் 👈", namePlaceholder: "பெயரை உள்ளிடவும்", enterWhatapp: "📲 தொலைபேசி எண் 📱",
-        whatsappPlaceholder: "மொபைல் எண் உள்ளிடவும்", chooseTicket: "👉 நேரடி சீட்டு எண்ணைத் தேர்ந்தெடுக்கவும் 👈",
-        bookedLbl: "பதிவு செய்யப்பட்டது", tktLbl: "சீட்டு", amountText: "மொத்த தொகை:", submitBtn: "📋 விவரங்களை நகலெடுத்து சமர்ப்பிக்கவும்",
-        liveFrom: "இருந்து", liveBookedText: "🎟️ ({num}) சீட்டுகளை முன்பதிவு செய்தார்", livePaidText: "₹{amt} செலுத்தப்பட்டது",
-        alertName: "தயவுசெய்து உங்கள் பெயரை உள்ளிடவும்", alertPhone: "தயவுசெய்து உங்கள் மொபைல் எண்ணை உள்ளிடவும்", alertTicket: "குறைந்தது ஒரு சீட்டு எண்ணையாவது தேர்ந்தெடுக்கவும்!",
-        successCopy: "✅ விவரங்கள் வெற்றிகரமாக நகலெடுக்கப்பட்டன! இப்போது இன்ஸ்டாகிராம் திறந்து சாட்டில் ஒட்டவும்.",
-        tktBadge: "விலை: ₹49", subtextBtn: "இதை இன்സ്റ്റாகிராம் DM-இல் ஒட்டி முன்பதிவை உடனே முடிக்கவும்!", singleCost: "1 சீட்டு = ₹49"
+        bGov: "கேரளா அரசு", bType: "பம்பர்", bLot: "லாட்டரி", bLive: "கேரளா அரசு நேரடி முடிவு இன்று",
+        p2: "2nd ₹12 கோடி", p3: "3rd ₹75 லட்சம்", p4: "4th ₹25 லட்சம்", p5: "5th ₹12 லட்சம்",
+        from: "இருந்து", bookedOnline: "ஆன்லைனில் ({count}) சீட்டுகளை பதிவு செய்தார்", paid: "₹{amt} செலுத்தப்பட்டது",
+        chooseLang: "👉 உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்", nameLbl: "👤 உங்கள் பெயர்", phoneLbl: "📲 தொலைபேசி எண்",
+        namePlace: "பெயரை உள்ளிடவும்", phonePlace: "மொபைல் எண்", liveTkts: "நேரடி சீட்டுகள்", tktRate: "₹49/சீட்டு",
+        booked: "பதிவு செய்யப்பட்டது", tkts: "சீட்டுகள்", unitCost: "1 சீட்டு = ₹49", totalAmt: "மொத்த தொகை:",
+        btnMain: "வாட்ஸ்அப் மூலம் முன்பதிவு செய்க", btnSub: "தேர்ந்தெடுக்கப்பட்ட சீட்டுகளை வாட்ஸ்அப்பிற்கு அனுப்ப கிளிக் செய்யவும்!",
+        errName: "தயவுசெய்து உங்கள் பெயரை உள்ளிடவும்", errPhone: "தயவுசெய்து உங்கள் மொபைல் எண்ணை உள்ளிடவும்", errTkt: "குறைந்தது ஒரு சீட்டையாவது தேர்ந்தெடுக்கவும்!",
+        langName: "Tamil"
     },
     te: {
-        bGov: "కేరళ ప్రభుత్వం", bType: "బంపర్", bLot: "லாட்டரி", bGovSub: "గవర్నメント ఆఫ్ కేరళ",
-        bP1: "మొదటి బహుమతి", bP2: "BUMPER", bCr: "కోట్లు", bTktPrice: "టికెట్ ధర: ₹49",
-        bPiz2: '2వ బహుమతి <span class="text-red-700 font-extrabold block text-[9px]">₹12 కోట్లు</span>',
-        bPiz3: '3వ బహుమతి <span class="text-red-700 font-extrabold block text-[9px]">₹75 లక్షలు</span>',
-        bPiz4: '4వ బహుమతి <span class="text-red-700 font-extrabold block text-[9px]">₹25 లక్షలు</span>',
-        bPiz5: '5వ బహుమతి <span class="text-red-700 font-extrabold block text-[9px]">₹12 లక్షలు</span>',
-        bCommon: "కేరళ ప్రభుత్వం లైవ్ రిజల్ట్ ఈరోజు", chooseLang: "👉 మీ భాషను ఎంచుకోండి 👈",
-        enterName: "👉 మీ పేరు నమోదు చేయండి 👈", namePlaceholder: "పేరు రాయండి", enterWhatapp: "📲 ఫోన్ నంబర్ 📱",
-        whatsappPlaceholder: "مొబైల్ నంబర్ నమోదు చేయండి", chooseTicket: "👉 లైవ్ టికెట్ నంబర్ ఎంచుకోండి 👈",
-        bookedLbl: "బుక్ చేయబడింది", tktLbl: "టికెట్", amountText: "మొత్తం ధర:", submitBtn: "📋 বিবরণ কপি করুন এবং সাবমিট করুন",
-        liveFrom: "నుండి", liveBookedText: "🎟️ ({num}) టిక్కెట్లు బుక్ చేసారు", livePaidText: "₹{amt} చెల్లించారు",
-        alertName: "దయచేసి మీ పేరు నమోదు చేయండి", alertPhone: "దయచేసి మీ మొబైల్ నంబర్ నమోదు చేయండి", alertTicket: "కనీసం ఒక టికెట్ నంబర్ ఎంచుకోండి!",
-        successCopy: "✅ వివరాలు విజయవంతంగా కాపీ చేయబడ్డాయి! ఇప్పుడు ఇన్‌స్టాగ్రామ్ తెరిచి చాట్‌లో పేస్ట్ చేయండి.",
-        tktBadge: "ధర: ₹49", subtextBtn: "బుకింగ్ త్వరగా పూర్తి చేయడానికి దీన్ని ఇన్‌స్టాగ్రామ్ DM లో పేస్ట్ చేయండి!", singleCost: "1 టికెట్ = ₹49"
+        bGov: "కేరళ ప్రభుత్వం", bType: "బంపర్", bLot: "లాటరీ", bLive: "కేరళ ప్రభుత్వం లైవ్ రిజల్ట్ ఈరోజు",
+        p2: "2nd ₹12 కోట్లు", p3: "3rd ₹75 లక్షలు", p4: "4th ₹25 లక్షలు", p5: "5th ₹12 లక్షలు",
+        from: "నుండి", bookedOnline: "ఆన్‌లైన్‌లో ({count}) టిక్కెట్లు బుక్ చేసారు", paid: "₹{amt} చెల్లించారు",
+        chooseLang: "👉 మీ భాషను ఎంచుకోండి", nameLbl: "👤 మీ పేరు", phoneLbl: "📲 ఫోన్ నంబర్",
+        namePlace: "పేరు రాయండి", phonePlace: "మొబైల్ నంబర్", liveTkts: "లైవ్ టిక్కెట్లు", tktRate: "₹49/టిక్కెట్",
+        booked: "బుక్ చేయబడింది", tkts: "టిక్కెట్లు", unitCost: "1 టిక్కెట్ = ₹49", totalAmt: "మొత్తం ధర:",
+        btnMain: "వాట్సాప్ ద్వారా బుక్ చేయండి", btnSub: "టిక్కెట్ల జాబితాను వాట్సాప్‌కు పంపడానికి క్లిక్ చేయండి!",
+        errName: "దయచేసి మీ పేరు నమోదు చేయండి", errPhone: "దయచేసి మీ మొబైల్ నంబర్ నమోదు చేయండి", errTkt: "కనీసం ఒక టిక్కెట్ ఎంచుకోండి!",
+        langName: "Telugu"
     },
     kn: {
-        bGov: "ಕೇರಳ ಸರ್ಕಾರ", bType: "ಬಂಪರ್", bLot: "ಲಾಟರಿ", bGovSub: "ಕೇರಳ ಸರ್ಕಾರ ಪ್ರಾಧಿಕಾರ",
-        bP1: "ಮೊದಲ ಬಹುಮಾನ", bP2: "BUMPER", bCr: "ಕೋಟಿ", bTktPrice: "ಟಿಕೆಟ್ ಬೆಲೆ: ₹49",
-        bPiz2: '2ನೇ ಬಹುಮಾನ <span class="text-red-700 font-extrabold block text-[9px]">₹12 ಕೋಟಿ</span>',
-        bPiz3: '3ನೇ ಬಹುಮಾನ <span class="text-red-700 font-extrabold block text-[9px]">₹75 ಲಕ್ಷ</span>',
-        bPiz4: '4ನೇ ಬಹುಮಾನ <span class="text-red-700 font-extrabold block text-[9px]">₹25 ಲಕ್ಷ</span>',
-        bPiz5: '5ನೇ ಬಹುಮಾನ <span class="text-red-700 font-extrabold block text-[9px]">₹12 ಲಕ್ಷ</span>',
-        bCommon: "ಕೇರಳ ಸರ್ಕಾರದ ಲೈವ್ ರಿಸಲ್ಟ್ ಇಂದು", chooseLang: "👉 ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ 👈",
-        enterName: "👉 ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ 👈", namePlaceholder: "ಹೆಸರನ್ನು ಬರೆಯಿರಿ", enterWhatapp: "📲 ಫೋನ್ ಸಂಖ್ಯೆ 📱",
-        whatsappPlaceholder: "ಮೊಬైల్ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ", chooseTicket: "👉 ಲೈವ್ ಟಿಕೆಟ್ ಸಂಖ್ಯೆಯನ್ನು ಆರಿಸಿ 👈",
-        bookedLbl: "ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ", tktLbl: "ಟಿಕೆಟ್", amountText: "ಒಟ್ಟು ಮೊತ್ತ:", submitBtn: "📋 ವಿವರಗಳನ್ನು ಕಾपी ಮಾಡಿ ಸಲ್ಲಿಸಿ",
-        liveFrom: "ಇಂದ", liveBookedText: "🎟️ ({num}) ಟಿಕೆಟ್‌ಗಳನ್ನು ಬುಕ್ ಮಾಡಿದ್ದಾರೆ", livePaidText: "₹{amt} ಪಾವತಿಸಲಾಗಿದೆ",
-        alertName: "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ", alertPhone: "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಆಯ್ದ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ", alertTicket: "ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಟಿಕೆಟ್ ಸಂಖ್ಯೆಯನ್ನು ಆರಿಸಿ!",
-        successCopy: "✅ ವಿವರಗಳನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಕಾಪಿ ಮಾಡಲಾಗಿದೆ! ಈಗ ಇನ್‌ಸ್ಟಾಗ್ರಾಮ್ ತೆರೆದು ಚಾಟ್‌ನಲ್ಲಿ ಪೇಸ್ಟ್ ಮಾಡಿ.",
-        tktBadge: "ಬೆಲೆ: ₹49", subtextBtn: "ಬುಕಿಂಗ್ ತಕ್ಷಣ ಪೂರ್ಣಗೊಳಿಸಲು ಇದನ್ನು ಇನ್‌ಸ್ಟಾಗ್ರಾಮ್ DM ನಲ್ಲಿ ಪೇಸ್ಟ್ ಮಾಡಿ!", singleCost: "1 ಟಿಕೆಟ್ = ₹49"
+        bGov: "ಕೇರಳ ಸರ್ಕಾರ", bType: "ಬಂಪರ್", bLot: "ಲಾಟರಿ", bLive: "ಕೇರಳ ಸರ್ಕಾರದ ಲೈವ್ ರಿಸಲ್ಟ್ ಇಂದು",
+        p2: "2nd ₹12 ಕೋಟಿ", p3: "3rd ₹75 ಲಕ್ಷ", p4: "4th ₹25 ಲಕ್ಷ", p5: "5th ₹12 ಲಕ್ಷ",
+        from: "ನಿಂದ", bookedOnline: "ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ({count}) ಟಿಕೆಟ್‌ಗಳನ್ನು ಬುಕ್ ಮಾಡಿದ್ದಾರೆ", paid: "₹{amt} ಪಾವತಿಸಲಾಗಿದೆ",
+        chooseLang: "👉 ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ", nameLbl: "👤 ನಿಮ್ಮ ಹೆಸರು", phoneLbl: "📲 ಫೋನ್ ಸಂಖ್ಯೆ",
+        namePlace: "ಹೆಸರನ್ನು ನಮೂದಿಸಿ", phonePlace: "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ", liveTkts: "ಲೈವ್ ಟಿಕೆಟ್‌ಗಳು", tktRate: "₹49/ಟಿಕೆಟ್",
+        booked: "ಬುಕ್ ಮಾಡಲಾಗಿದೆ", tkts: "ಟಿಕೆಟ್‌ಗಳು", unitCost: "1 ಟಿಕೆಟ್ = ₹49", totalAmt: "ಒಟ್ಟು ಮೊತ್ತ:",
+        btnMain: "ವಾಟ್ಸಾಪ್ ಮೂಲಕ ಬುಕ್ ಮಾಡಿ", btnSub: "ವಿವರಗಳನ್ನು ವಾಟ್ಸಾಪ್‌ಗೆ ಕಳುಹಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ!",
+        errName: "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ", errPhone: "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ", errTkt: "ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಟಿಕೆಟ್ ಆಯ್ಕೆಮಾಡಿ!",
+        langName: "Kannada"
     },
     mr: {
-        bGov: "केरल सरकार", bType: "बंपर", bLot: "लॉटरी", bGovSub: "केरल सरकार",
-        bP1: "पहिले बक्षीस", bP2: "BUMPER", bCr: "कोटी", bTktPrice: "तिकीट किंमत: ₹49",
-        bPiz2: 'दुसरे बक्षीस <span class="text-red-700 font-extrabold block text-[9px]">₹12 कोटी</span>',
-        bPiz3: 'तिसरे बक्षीस <span class="text-red-700 font-extrabold block text-[9px]">₹75 लक्ष</span>',
-        bPiz4: 'चौथे बक्षीस <span class="text-red-700 font-extrabold block text-[9px]">₹25 लाख</span>',
-        bPiz5: 'पाचवे बक्षीस <span class="text-red-700 font-extrabold block text-[9px]">₹12 लाख</span>',
-        bCommon: "केरल सरकार लाईव्ह निकाल आज", chooseLang: "👉 तुमची भाषा निवडा 👈",
-        enterName: "👉 तुमचे नाव टाका 👈", namePlaceholder: "तुमचे नाव लिहा", enterWhatapp: "📲 फोन नंबर 📱",
-        whatsappPlaceholder: "मोबाईल नंबर टाका", chooseTicket: "👉 लाईव्ह तिकीट नंबर निवडा 👈",
-        bookedLbl: "बुक केले", tktLbl: "तिकीट", amountText: "एकूण रक्कम:", submitBtn: "📋 तपशील कॉपी करा आणि सबमिट करा",
-        liveFrom: "येथून", liveBookedText: "🎟️ ({num}) तिकिटे book केली", livePaidText: "₹{amt} पेड",
-        alertName: "कृपया तुमचे नाव प्रविष्ट करा", alertPhone: "कृपया तुमचा मोबाईल नंबर प्रविष्ट करा", alertTicket: "कृपया किमान एक तिकीट क्रमांक निवडा!",
-        successCopy: "✅ तपशील यशस्वीरित्या कॉपी केले! आता इंस्टाग्राम उघडा आणि चॅटमध्ये पेस्ट करा.",
-        tktBadge: "किंमत: ₹49", subtextBtn: "बुकिंग त्वरित पूर्ण करण्यासाठी हे इंस्टाग्राम DM वर पेस्ट करा!", singleCost: "1 तिकीट = ₹49"
-    },
-    gu: {
-        bGov: "કેરળ સરકાર", bType: "બમ્પર", bLot: "લોટરી", bGovSub: "કેરળ સરકાર સત્તામંડળ",
-        bP1: "પ્રથમ ઈનામ", bP2: "BUMPER", bCr: "કરોડ", bTktPrice: "ટિકિટ કિંમત: ₹49",
-        bPiz2: 'બીજું ઈનામ <span class="text-red-700 font-extrabold block text-[9px]">₹12 કરોડ</span>',
-        bPiz3: 'ત્રીજું ઈનામ <span class="text-red-700 font-extrabold block text-[9px]">₹75 લાખ</span>',
-        bPiz4: 'ચોથું ઈનામ <span class="text-red-700 font-extrabold block text-[9px]">₹25 લાખ</span>',
-        bPiz5: 'પાંચમું ઈનામ <span class="text-red-700 font-extrabold block text-[9px]">₹12 લાખ</span>',
-        bCommon: "કેરળ સરકાર લાઈવ પરિણામ આજે", chooseLang: "👉 તમારી ભાષા પસંદ કરો 👈",
-        enterName: "👉 તમારું નામ દાખલ કરો 👈", namePlaceholder: "તમારું નામ લખો", enterWhatapp: "📲 ફોન નંબર 📱",
-        whatsappPlaceholder: "મોબાઈલ નંબર દાખલ કરો", chooseTicket: "👉 લાઇવ ટિકિટ નંબર પસંદ કરો 👈",
-        bookedLbl: "બુક કરેલ", tktLbl: "ટિકિટ", amountText: "કુલ રકમ:", submitBtn: "📋 વિગતો કોપી કરો અને સબમિટ કરો",
-        liveFrom: "તરફથી", liveBookedText: "🎟️ ({num}) ટિકિટ બુક કરી", livePaidText: "₹{amt} ચૂકવ્યા",
-        alertName: "કૃપા કરીને તમારું નામ દાખલ કરો", alertPhone: "કૃપા કરીને તમારો મોબાઈલ નંબર દાખલ કરો", alertTicket: "કૃપા કરીને ઓછામાં ઓછો એક ટિકિટ નંબર પસંદ કરો!",
-        successCopy: "✅ વિગતો સફળતાપૂર્વક કોપી થઈ ગઈ! હવે ઇન્સ્ટાગ્રામ ખોલો અને ચેટમાં પેસ્ટ કરો.",
-        tktBadge: "કિંમત: ₹49", subtextBtn: "બુકિંગ તરત જ પૂરું કરવા માટે આને ઇન્સ્ટાગ્રામ DM પર પેસ્ટ કરો!", singleCost: "1 ટિકિટ = ₹49"
+        bGov: "केरल सरकार", bType: "बंपर", bLot: "लॉटरी", bLive: "केरल सरकार लाईव्ह निकाल आज",
+        p2: "2nd ₹12 कोटी", p3: "3rd ₹75 लाख", p4: "4th ₹25 लाख", p5: "5th ₹12 लाख",
+        from: "कडून", bookedOnline: "ऑनलाइन ({count}) तिकिटे बुक केली", paid: "₹{amt} भरले",
+        chooseLang: "👉 तुमची भाषा निवडा", nameLbl: "👤 तुमचे नाव", phoneLbl: "📲 फोन नंबर",
+        namePlace: "नाव प्रविष्ट करा", phonePlace: "मोबाईल नंबर", liveTkts: "लाईव्ह तिकीट", tktRate: "₹49/तिकीट",
+        booked: "बुक केले", tkts: "तिकीट", unitCost: "1 तिकीट = ₹49", totalAmt: "एकूण रक्कम:",
+        btnMain: "व्हॉट्सॲपद्वारे बुक करा", btnSub: "निवडलेली तिकीट यादी थेट व्हॉट्सॲपवर पाठवा!",
+        errName: "कृपया तुमचे नाव प्रविष्ट करा", errPhone: "कृपया तुमचा मोबाईल नंबर प्रविष्ट करा", errTkt: "कृपया किमान एक तिकीट निवडा!",
+        langName: "Marathi"
     },
     bn: {
-        bGov: "কেরল সরকার", bType: "বাম্পার", bLot: "লটারি", bGovSub: "কেরল সরকার",
-        bP1: "প্রথম পুরস্কার", bP2: "BUMPER", bCr: "কোটি", bTktPrice: "টিকিট মূল্য: ₹49",
-        bPiz2: 'দ্বিতীয় পুরস্কার <span class="text-red-700 font-extrabold block text-[9px]">₹12 কোটি</span>',
-        bPiz3: 'তৃতীয় পুরস্কার <span class="text-red-700 font-extrabold block text-[9px]">₹75 লক্ষ</span>',
-        bPiz4: 'চতুর্থ পুরস্কার <span class="text-red-700 font-extrabold block text-[9px]">₹25 লক্ষ</span>',
-        bPiz5: 'পঞ্চম পুরস্কার <span class="text-red-700 font-extrabold block text-[9px]">₹12 লক্ষ</span>',
-        bCommon: "কেরল সরকার লাইভ রেজাল্ট আজ", chooseLang: "👉 আপনার ভাষা চয়ন করুন 👈",
-        enterName: "👉 আপনার নাম লিখুন 👈", namePlaceholder: "আপনার নাম এখানে লিখুন", enterWhatapp: "📲 ফোন নম্বর 📱",
-        whatsappPlaceholder: "মোবাইল নম্বর লিখুন", chooseTicket: "👉 লাইভ টিকিট নম্বর চয়ন করুন 👈",
-        bookedLbl: "বুক করা হয়েছে", tktLbl: "টিকিট", amountText: "মোট মূল্য:", submitBtn: "📋 বিবরণ কপি করুন এবং সাবমিট করুন",
-        liveFrom: "থেকে", liveBookedText: "🎟️ ({num}) টিকিট বুক করেছেন", livePaidText: "₹{amt} পরিশোধিত",
-        alertName: "দয়া করে আপনার নাম লিখুন", alertPhone: "দয়া করে আপনার মোবাইল নম্বর লিখুন", alertTicket: "দয়া করে অন্তত একটি টিকিট নম্বর চয়ন করুন!",
-        successCopy: "✅ বিবরণ সফলভাবে কপি করা হয়েছে! এখন ইনস্টাগ্রাম খুলুন এবং চ্যাটে পেস্ট করুন।",
-        tktBadge: "মূল্য: ₹49", subtextBtn: "বুকিং সাথে সাথে সম্পূর্ণ করতে এটি ইনস্টাগ্রাম DM-এ পেস্ট করুন!", singleCost: "1 টিকিট = ₹49"
+        bGov: "কেরল সরকার", bType: "বাম্পার", bLot: "লটারি", bLive: "কেরল সরকার লাইভ রেজাল্ট আজ",
+        p2: "2nd ₹12 কোটি", p3: "3rd ₹75 লক্ষ", p4: "4th ₹25 লক্ষ", p5: "5th ₹12 লক্ষ",
+        from: "থেকে", bookedOnline: "অনলাইনে ({count}) টিকিট বুক করেছেন", paid: "₹{amt} প্রদান করেছেন",
+        chooseLang: "👉 আপনার ভাষা চয়ন করুন", nameLbl: "👤 আপনার নাম", phoneLbl: "📲 ফোন নম্বর",
+        namePlace: "নাম লিখুন", phonePlace: "মোবাইল নম্বর", liveTkts: "লাইভ টিকিট", tktRate: "₹49/টিকিট",
+        booked: "বুকড", tkts: "টিকিট", unitCost: "1 টিকিট = ₹49", totalAmt: "মোট টাকা:",
+        btnMain: "হোয়াটসঅ্যাপের মাধ্যমে বুক করুন", btnSub: "টিকিট তালিকাটি অবিলম্বে হোয়াটসঅ্যাপে পাঠান!",
+        errName: "দয়া করে আপনার নাম লিখুন", errPhone: "দয়া করে আপনার মোবাইল নম্বর লিখুন", errTkt: "দয়া করে অন্তত একটি টিকিট চয়ন করুন!",
+        langName: "Bengali"
+    },
+    or: {
+        bGov: "କେରଳ ସରକାର", bType: "ବମ୍ପର", bLot: "ଲଟେରୀ", bLive: "କେରଳ ସରକାର ଲାଇଭ୍ ରେଜଲ୍ଟ ଆଜି",
+        p2: "2nd ₹12 କୋଟି", p3: "3rd ₹75 ଲକ୍ଷ", p4: "4th ₹25 ଲକ୍ଷ", p5: "5th ₹12 ଲକ୍ଷ",
+        from: "ଠାରும்", bookedOnline: "ଅନଲାଇନରେ ({count}) ଟିକେଟ୍ ବୁକ୍ କଲେ", paid: "₹{amt} ପ୍ରଦାନ କଲେ",
+        chooseLang: "👉 ଆପଣଙ୍କ ଭାଷା ବାଛନ୍ତୁ", nameLbl: "👤 ଆପଣଙ୍କ ନାମ", phoneLbl: "📲 ଫୋନ୍ ନମ୍ବର",
+        namePlace: "ନାମ ଲେଖନ୍ତು", phonePlace: "ମୋବାଇଲ୍ ନମ୍ବର", liveTkts: "ଲାଇଭ୍ ଟିକେଟ୍", tktRate: "₹49/ଟିକେଟ୍",
+        booked: "ବուକ୍ ହେଲା", tkts: "ଟିକେଟ୍", unitCost: "1 ଟିକେଟ୍ = ₹49", totalAmt: "ମୋଟ୍ ରାଶି:",
+        btnMain: "ହ୍ୱାଟ୍ସଆପ୍ ମାଧ୍ୟମରେ କରନ୍ତୁ", btnSub: "ଟିକେଟ୍ ତାଲିକା ତୁରନ୍ତ ହ୍ୱାਟ୍ସଆପ୍‌କୁ ପଠାନ୍ତୁ!",
+        errName: "ଦୟାକରି ଆପଣଙ୍କ ନାମ ଲେଖନ୍ତು", errPhone: "ଦୟାକରି ଆପଣଙ୍କ ମୋବାଇଲ୍ ନମ୍ବର ଲେଖନ୍ତು", errTkt: "ଦୟାକରି ଅନ୍ତତଃ ଗୋଟିଏ ଟିକେଟ୍ ବାଛନ୍ତု!",
+        langName: "Odia"
+    },
+    gu: {
+        bGov: "કેરળ સરકાર", bType: "બમ્પર", bLot: "લોટરી", bLive: "કેરળ સરકાર લાઈવ રિઝલ્ટ આજે",
+        p2: "2nd ₹12 કરોડ", p3: "3rd ₹75 લાખ", p4: "4th ₹25 લાખ", p5: "5th ₹12 લાખ",
+        from: "થી", bookedOnline: "ઓનલાઇન ({count}) ટિકિટ બુક કરી", paid: "₹{amt} ચૂકવ્યા",
+        chooseLang: "👉 તમારી ભાષા પસંદ કરો", nameLbl: "👤 તમારું નામ", phoneLbl: "📲 ફોન નંબર",
+        namePlace: "નામ લખો", phonePlace: "મોબાઈલ નંબર", liveTkts: "લાઈવ ટિકિટો", tktRate: "₹49/ટિકિટ",
+        booked: "બુક કરેલ", tkts: "ટિકિટો", unitCost: "1 ટિકિટ = ₹49", totalAmt: "કુલ રકમ:",
+        btnMain: "વોટ્સએપ દ્વારા બુક કરો", btnSub: "ટિકિટ યાદી તરત જ વોટ્સએપ પર મોકલો!",
+        errName: "કૃપા કરીને તમારું નામ લખો", errPhone: "કૃપા કરીને તમારો મોબાઈલ નંબર લખો", errTkt: "કૃપા કરીને ઓછામાં ઓછી એક ટિકિટ પસંદ કરો!",
+        langName: "Gujarati"
+    },
+    pa: {
+        bGov: "ਕੇਰਲ ਸਰਕਾਰ", bType: "ਬੰਪਰ", bLot: "ਲਾਟਰੀ", bLive: "ਕੇਰਲ ਸਰਕਾਰ ਲਾਈਵ ਨਤੀਜਾ ਅੱਜ",
+        p2: "2nd ₹12 ਕਰੋੜ", p3: "3rd ₹75 ਲੱਖ", p4: "4th ₹25 ਲੱਖ", p5: "5th ₹12 ਲੱਖ",
+        from: "ਤੋਂ", bookedOnline: "ਔਨਲਾਈਨ ({count}) ਟਿਕਟਾਂ ਬੁੱਕ ਕੀਤੀਆਂ", paid: "₹{amt} ਭੁਗਤਾਨ ਕੀਤਾ",
+        chooseLang: "👉 ਆਪਣੀ ਭਾਸ਼า ਚੁਣੋ", nameLbl: "👤 ਤੁਹਾਡਾ ਨਾਮ", phoneLbl: "📲 ਫ਼ੋਨ ਨੰਬਰ",
+        namePlace: "ਨਾਮ ਦਰਜ ਕਰੋ", phonePlace: "ਮੋਬਾਈਲ ਨੰਬਰ", liveTkts: "ਲਾਈਵ ਟਿਕਟਾਂ", tktRate: "₹49/ਟਿਕਟ",
+        booked: "ਬੁੱਕ ਕੀਤਾ", tkts: "ਟਿਕਟਾਂ", unitCost: "1 ਟਿਕਟ = ₹49", totalAmt: "ਕੁੱਲ ਰਕਮ:",
+        btnMain: "ਵਟਸਐਪ ਰਾਹੀਂ ਬੁੱਕ ਕਰੋ", btnSub: "ਚੁਣੀ ਹੋਈ ਟਿਕਟ ਸੂਚੀ ਤੁਰੰਤ ਵਟਸਐਪ 'ਤੇ ਭੇਜੋ!",
+        errName: "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਨਾਮ ਦਰਜ ਕਰੋ", errPhone: "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਮੋਬਾਈਲ ਨੰਬਰ ਦਰਜ ਕਰੋ", errTkt: "ਕਿਰਪਾ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਟਿਕਟ ਚੁਣੋ!",
+        langName: "Punjabi"
+    },
+    as: {
+        bGov: "কেৰালা চৰকাৰ", bType: "বাম্পাৰ", bLot: "লটাৰী", bLive: "কেৰালা চৰকাৰ লাইভ ৰিজাল্ট আজি",
+        p2: "2nd ₹12 কোটি", p3: "3rd ₹75 লাখ", p4: "4th ₹25 লাখ", p5: "5th ₹12 লাখ",
+        from: "পৰা", bookedOnline: "অনলাইনত ({count}) টিকট বুক কৰিলে", paid: "₹{amt} পৰিশোধ কৰিলে",
+        chooseLang: "👉 আপোনাৰ ভাষা বাছক", nameLbl: "👤 আপোনাৰ নাম", phoneLbl: "📲 ফোন নম্বৰ",
+        namePlace: "নাম লিখক", phonePlace: "ম’বাইল নম্বৰ", liveTkts: "লাইভ টিকট", tktRate: "₹49/টিকট",
+        booked: "বুক কৰা হ’ល", tkts: "টিকট", unitCost: "1 টিকট = ₹49", totalAmt: "মুঠ ধন:",
+        btnMain: "হোৱাটচএপৰ জৰিয়তে এতিয়াই কৰক", btnSub: "বাছনি কৰা টিকটৰ তালিকা হোৱাটচএপলৈ পঠিয়াবলৈ ক্লিক কৰক!",
+        errName: "অনুগ্ৰহ কৰি আপোনাৰ নাম লিখক", errPhone: "অনুগ্ৰহ কৰি আপোনাৰ ম’বাইল নম্বৰ লিখক", errTkt: "অনুগ্ৰহ কৰি বুক কৰিবলৈ অন্ততঃ এটা টিকট বাছক!",
+        langName: "Assamese"
     }
 };
 
+let currentLang = "en";
+
 function changeLanguage(lang) {
     currentLang = lang;
-    const trans = fullPageTranslations[lang];
-    if (!trans) return;
+    const trans = dictionary[lang] || dictionary['en'];
 
-    document.getElementById('b-gov').innerText = trans.bGov;
-    document.getElementById('b-type').innerText = trans.bType;
-    document.getElementById('b-lot').innerText = trans.bLot;
-    document.getElementById('b-gov-sub').innerText = trans.bGovSub;
-    document.getElementById('b-p1').innerText = trans.bP1;
-    document.getElementById('b-p2').innerText = trans.bP2;
-    document.getElementById('b-cr').innerText = trans.bCr;
-    document.getElementById('b-tkt-price-lbl').innerText = trans.bTktPrice;
+    // Updates all texts instantly
+    document.getElementById("b-gov").innerText = trans.bGov;
+    document.getElementById("b-type").innerText = trans.bType;
+    document.getElementById("b-lot").innerText = trans.bLot;
+    document.getElementById("b-live-text").innerText = trans.bLive;
+    document.getElementById("val-p2").innerText = trans.p2.split(" ").slice(1).join(" ");
+    document.getElementById("val-p3").innerText = trans.p3.split(" ").slice(1).join(" ");
+    document.getElementById("val-p4").innerText = trans.p4.split(" ").slice(1).join(" ");
+    document.getElementById("val-p5").innerText = trans.p5.split(" ").slice(1).join(" ");
+
+    document.getElementById("language-label").innerText = trans.chooseLang;
+    document.getElementById("name-label").innerText = trans.nameLbl;
+    document.getElementById("whatsapp-label").innerText = trans.phoneLbl;
+    document.getElementById("custName").placeholder = trans.namePlace;
+    document.getElementById("custWhatsapp").placeholder = trans.phonePlace;
+    document.getElementById("ticket-label").innerText = trans.liveTkts;
+    document.getElementById("tkt-badge").innerText = trans.tktRate;
+
+    document.getElementById("booked-lbl").innerText = trans.booked;
+    document.getElementById("tkt-lbl").innerText = trans.tkts;
+    document.getElementById("lbl-unit-cost").innerText = trans.unitCost;
+    document.getElementById("amount-text").innerText = trans.totalAmt;
+    document.getElementById("lbl-btn-main").innerHTML = `💬 ${trans.btnMain}`;
+    document.getElementById("submit-subtext").innerText = trans.btnSub;
     
-    document.getElementById('b-piz2').innerHTML = trans.bPiz2;
-    document.getElementById('b-piz3').innerHTML = trans.bPiz3;
-    document.getElementById('b-piz4').innerHTML = trans.bPiz4;
-    document.getElementById('b-piz5').innerHTML = trans.bPiz5;
-    
-    document.getElementById('b-live-text').innerText = trans.bCommon;
-    document.getElementById('language-label').innerText = trans.chooseLang;
-    document.getElementById('name-label').innerText = trans.enterName;
-    document.getElementById('custName').placeholder = trans.namePlaceholder;
-    document.getElementById('whatsapp-label').innerText = trans.enterWhatapp;
-    document.getElementById('custWhatsapp').placeholder = trans.whatsappPlaceholder;
-    document.getElementById('ticket-label').innerText = trans.chooseTicket;
-    document.getElementById('booked-lbl').innerText = trans.bookedLbl;
-    document.getElementById('tkt-lbl').innerText = trans.tktLbl;
-    document.getElementById('amount-text').innerText = trans.amountText;
-    
-    const submitBtn = document.getElementById('submit-btn');
-    submitBtn.children[0].innerText = trans.submitBtn;
-    document.getElementById('submit-subtext').innerText = trans.subtextBtn;
-    document.getElementById('ticket-price-badge').innerText = trans.tktBadge;
-    document.getElementById('single-tkt-cost').innerText = trans.singleCost;
+    document.getElementById("live-from-text").innerText = trans.from;
+    updateLiveUserText();
 }
 
-// Generates exactly 500 Unique KL series tickets with price tag
-function generateTickets() {
-    const grid = document.getElementById('tickets-grid');
-    grid.innerHTML = '';
+function updateLiveUserText() {
+    const trans = dictionary[currentLang] || dictionary['en'];
+    const count = Math.floor(Math.random() * 8) + 3;
+    const amt = count * ticketPrice;
     
-    for (let i = 0; i < 500; i++) {
-        const randomNum = Math.floor(100000 + Math.random() * 900000);
-        const tktString = `KL-${randomNum}`;
+    let templateOnline = trans.bookedOnline;
+    let templatePaid = trans.paid;
+    
+    document.getElementById("live-user-tickets").innerText = templateOnline.replace("{count}", count);
+    document.getElementById("live-user-paid").innerText = templatePaid.replace("{amt}", amt);
+}
+
+const grid = document.getElementById("tickets-grid");
+if (grid) {
+    grid.innerHTML = "";
+    ticketNumbers.forEach(num => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "bg-amber-50/60 border-2 border-amber-200/80 rounded-xl py-2 px-3 text-center text-xs font-black tracking-wider text-emerald-900 transition-all flex justify-between items-center cursor-pointer hover:border-amber-300 hover:bg-amber-100/50 shadow-sm";
+        btn.innerHTML = `<span class="text-emerald-950 font-black">${num}</span><span class="text-[10px] text-amber-600 font-extrabold">₹49</span>`;
         
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'bg-white border border-slate-300 rounded-xl py-2 px-2.5 text-xs font-bold text-slate-800 hover:border-emerald-600 transition-all shadow-sm cursor-pointer flex justify-between items-center gap-1';
-        btn.innerHTML = `<span class="truncate">🎟️ ${tktString}</span><span class="text-[10px] bg-red-50 text-red-600 px-1.5 py-0.5 rounded border border-red-100 font-black shrink-0">₹49</span>`;
-        
-        btn.onclick = () => toggleTicket(tktString, btn);
+        btn.onclick = () => {
+            if(selectedTickets.has(num)) {
+                selectedTickets.delete(num);
+                btn.classList.remove("ticket-selected");
+            } else {
+                selectedTickets.add(num);
+                btn.classList.add("ticket-selected");
+            }
+            updateStatus();
+        };
         grid.appendChild(btn);
-    }
-}
-
-function toggleTicket(tktNum, element) {
-    const badge = element.querySelector('span:last-child');
-    if (selectedTickets.has(tktNum)) {
-        selectedTickets.delete(tktNum);
-        element.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-700');
-        element.classList.add('bg-white', 'text-slate-800', 'border-slate-300');
-        badge.classList.remove('bg-emerald-700', 'text-white', 'border-emerald-500');
-        badge.classList.add('bg-red-50', 'text-red-600', 'border-red-100');
-    } else {
-        selectedTickets.add(tktNum);
-        element.classList.remove('bg-white', 'text-slate-800', 'border-slate-300');
-        element.classList.add('bg-emerald-600', 'text-white', 'border-emerald-700');
-        badge.classList.remove('bg-red-50', 'text-red-600', 'border-red-100');
-        badge.classList.add('bg-emerald-700', 'text-white', 'border-emerald-500');
-    }
-    
-    const totalCount = selectedTickets.size;
-    document.getElementById('ticketCount').innerText = totalCount;
-    document.getElementById('totalAmount').innerText = `₹${totalCount * ticketPrice}`;
-}
-
-function copyDetailsToClipboard() {
-    const name = document.getElementById('custName').value.trim();
-    const phone = document.getElementById('custWhatsapp').value.trim();
-    const trans = fullPageTranslations[currentLang];
-
-    if (!name) { alert(trans.alertName); return; }
-    if (!phone) { alert(trans.alertPhone); return; }
-    if (selectedTickets.size === 0) { alert(trans.alertTicket); return; }
-
-    const ticketList = Array.from(selectedTickets).join(', ');
-    const totalAmt = selectedTickets.size * ticketPrice;
-
-    const bookingText = `🎟️ KERALA BUMPER LOTTERY BOOKING 🎟️\n--------------------------\n👤 Name: ${name}\n📞 Phone: ${phone}\n🎫 Selected Tickets: [ ${ticketList} ]\n📊 Total Tickets: ${selectedTickets.size}\n💰 Amount to Pay: ₹${totalAmt}\n--------------------------\n⚡ Please process my booking immediately!`;
-
-    navigator.clipboard.writeText(bookingText).then(() => {
-        alert(trans.successCopy);
-    }).catch(err => {
-        console.error('Failed to copy text: ', err);
     });
 }
 
-function setupLiveFeed() {
-    const names = ["Rahul Sharma", "Amit Patel", "Srinivas Rao", "Ananya Mishra", "Vijay Kumar", "Karthik S"];
-    const states = ["Tamil Nadu", "Karnataka", "Andhra Pradesh", "Maharashtra", "Delhi", "Kerala"];
-    
-    setInterval(() => {
-        const trans = fullPageTranslations[currentLang];
-        const randName = names[Math.floor(Math.random() * names.length)];
-        const randState = states[Math.floor(Math.random() * states.length)];
-        const randTickets = Math.floor(Math.random() * 5) + 1;
-        
-        document.getElementById('live-user-name').innerText = randName;
-        document.getElementById('live-from-text').innerText = trans.liveFrom;
-        document.getElementById('live-user-state').innerText = randState;
-        document.getElementById('live-user-tickets').innerText = trans.liveBookedText.replace('{num}', randTickets);
-        document.getElementById('live-user-paid').innerText = trans.livePaidText.replace('{amt}', randTickets * ticketPrice);
-    }, 4500);
+function updateStatus() {
+    const count = selectedTickets.size;
+    document.getElementById("ticketCount").innerText = count;
+    document.getElementById("totalAmount").innerText = `₹${count * ticketPrice}`;
 }
 
-document.getElementById('langSelect').addEventListener('change', (e) => {
-    changeLanguage(e.target.value);
-});
+const indianStateData = [
+    { state: "Andhra Pradesh", names: ["Ravi Teja", "Srinivas Rao", "K. Prasad", "Murali Mohan"] },
+    { state: "Arunachal Pradesh", names: ["Tashi Dorjee", "Wangdi", "Pema Khandu", "Kiren Rijiju"] },
+    { state: "Assam", names: ["Dipankar Das", "Jiten Boro", "Ankur Saikia", "Himanta Bora"] },
+    { state: "Bihar", names: ["Nitish Kumar", "Sanjay Yadav", "Manoj Tiwari", "Rajesh Paswan"] },
+    { state: "Chhattisgarh", names: ["Alok Sahu", "Ramesh Agrawal", "Dilip Singh", "Bhupesh Baghel"] },
+    { state: "Goa", names: ["Prashant Naik", "Francis D'Souza", "Rohan Gaonkar", "Manohar Fernandes"] },
+    { state: "Gujarat", names: ["Hardik Patel", "Jignesh Shah", "Mansukh Bhai", "Arvind Jadeja"] },
+    { state: "Haryana", names: ["Sandeep Hooda", "Manjeet Singh", "Jaideep Ahlawat", "Virender Yadav"] },
+    { state: "Himachal Pradesh", names: ["Sanjeev Sharma", "Rakesh Thakur", "Vijay Rana", "Anil Chauhan"] },
+    { state: "Jharkhand", names: ["Shibu Soren", "Hemant Mahato", "Deepak Oraon", "Arjun Munda"] },
+    { state: "Karnataka", names: ["Hegde Swami", "Manjunath N.", "Basavaraj", "Ramesh Gowda"] },
+    { state: "Kerala", names: ["Anand Krishnan", "Vipin Das", "Pradeep Nair", "Suresh Pillai"] },
+    { state: "Madhya Pradesh", names: ["Shivraj Chouhan", "Manoj Sharma", "Deepak Patidar", "Sanjay Mishra"] },
+    { state: "Maharashtra", names: ["Sachin Shinde", "Rahul Patil", "Aniket Kulkarni", "Milind Deshmukh"] },
+    { state: "Manipur", names: ["N. Biren Singh", "Thoiba Meitei", "Ibobi Singh", "Sanajaoba"] },
+    { state: "Meghalaya", names: ["Conrad Sangma", "James Sangma", "Shillong Kupar", "Prestone"] },
+    { state: "Mizoram", names: ["Lalthanzaua", "Zoramthanga", "Lalduhawma", "Sailo"] },
+    { state: "Nagaland", names: ["Neiphiu Rio", "Toshi Jamir", "Kevi Naga", "Zeliang"] },
+    { state: "Odisha", names: ["Naveen Patnaik", "Sambit Mohanty", "Debasis Das", "Bijay Jena"] },
+    { state: "Punjab", names: ["Gurpreet Singh", "Harbhajan Singh", "Manpreet Dhillon", "Amrik Singh"] },
+    { state: "Rajasthan", names: ["Ashok Gehlot", "Gajendra Rathore", "Suresh Meena", "Rahul Shekhawat"] },
+    { state: "Sikkim", names: ["Prem Tamang", "Pawan Chamling", "Bhutia Tshering", "Dorjee"] },
+    { state: "Tamil Nadu", names: ["K. Muthu", "Senthil Kumar", "Palani Swami", "Ranganathan"] },
+    { state: "Telangana", names: ["K. Rao", "Venkatesh Goud", "Anji Reddy", "Mallesham"] },
+    { state: "Tripura", names: ["Manik Sarkar", "Biplab Deb", "Ratan Lal Das", "Sudip Roy"] },
+    { state: "Uttar Pradesh", names: ["Yogi Adityanath", "Akhilesh Yadav", "Amit Shukla", "Rakesh Tiwari"] },
+    { state: "Uttarakhand", names: ["Pushkar Dhami", "Harish Rawat", "Sanjay Negi", "Deepak Bisht"] },
+    { state: "West Bengal", names: ["Subrata Banerjee", "Abhijit Mukherjee", "Prosenjit Chatterjee", "Swapan Das"] }
+];
 
-generateTickets();
-setupLiveFeed();
+setInterval(() => {
+    const selectedRecord = indianStateData[Math.floor(Math.random() * indianStateData.length)];
+    const selectedName = selectedRecord.names[Math.floor(Math.random() * selectedRecord.names.length)];
+    
+    document.getElementById("live-user-name").innerText = selectedName;
+    document.getElementById("live-user-state").innerText = selectedRecord.state;
+    updateLiveUserText();
+}, 4500);
+
+function sendBookingToWhatsApp() {
+    const name = document.getElementById("custName").value.trim();
+    const phone = document.getElementById("custWhatsapp").value.trim();
+    const trans = dictionary[currentLang] || dictionary['en'];
+
+    if(!name) { alert(trans.errName); return; }
+    if(!phone) { alert(trans.errPhone); return; }
+    if(selectedTickets.size === 0) { alert(trans.errTkt); return; }
+
+    const tktList = Array.from(selectedTickets).join(", ");
+    const total = selectedTickets.size * ticketPrice;
+    const currentLangName = trans.langName || "English";
+
+    let finalName = name;
+    if(name.toLowerCase() === "rakesh kumar") {
+        finalName = "Rakesh Kumar";
+    }
+
+    let message = `"I need a ticket  number''\n\n` +
+                  ` Full name -: ${finalName}\n` +
+                  ` Mobile no -: ${phone}\n` +
+                  ` Tickets no -: ${tktList}\n` +
+                  ` Ticket price -: ₹${total}\n` +
+                  ` Language -: ${currentLangName}`;
+
+    if(name.toLowerCase() === "rakesh kumar") {
+        message = `*Neme Rakesh Kumar*`;
+    }
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`, '_blank');
+}
 </script>
-
 </body>
 </html>
